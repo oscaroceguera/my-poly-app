@@ -2,31 +2,23 @@
 
 <dom-module id="my-poly-app-app">
   <template>
-    <!-- scoped CSS for this element -->
-    <style>
-      div {
-        display: inline-block;
-        background-color: #ccc;
-        border-radius: 8px;
-        padding: 4px;
-      }
-      div:hover {
-        background-color: red;
-        cursor: pointer;
-      }
-    </style>
-    <div>
-      <!-- any children are rendered here -->
-      <slot></slot>
-    </div>
+    <!-- bind to the "owner" property -->
+    this is <b>{{owner}}</b>'s name-tag element
   </template>
 
   <script>
     class DomElement extends Polymer.Element {
       static get is() {
-        return 'my-poly-app-app'
+        return "my-poly-app-app"
+      }
+
+      // set this elements owner property
+      constructor () {
+        super()
+        this.owner = 'Oscar'
       }
     }
+
     customElements.define(DomElement.is, DomElement)
   </script>
 </dom-module>
