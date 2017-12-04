@@ -1,36 +1,34 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<!-- import the iron-input element -->
-<link rel="import" href="https://polygit.org/components/iron-input/iron-input.html">
+<!-- import template repeater -->
+<link rel="import" href="https://polygit.org/components/polymer/lib/elements/dom-repeat.html">
 
 
 <dom-module id="my-poly-app-app">
   <template>
-    <!-- bind to the "owner" property -->
-    <p>this is <b>[[owner]]</b>'s name-tag element</p>
-
-    <!--  iron-input exposes a two-way bindable input value  -->
-    <iron-input bind-value="{{owner}}">
-      <input is="iron-input" placeholder="ypur name here..." >
-
-    </iron-input>
+    <div>Employee list:</div>
+    <p></p>
+    <template is="dom-repeat" items="{{employees}}">
+      <div>First name: <span>{{item.first}}</span></div>
+      <div>Last name: <span>{{item.last}}</span></div>
+      <p></p>
+    </template>
   </template>
 
   <script>
     class DomElement extends Polymer.Element {
-      static get is() {
-        return "my-poly-app-app"
-      }
+      static get is() { return "my-poly-app-app" }
 
-      // configure owner property
-      static get properties() {
-        return {
-          owner: {
-            type: String,
-            value: 'Oscar'
-          }
-        }
-      } 
+      // set this elements employees property
+      constructor () {
+        super()
+        this.employees = [
+          {first: 'Bob', last: 'Li'},
+          {first: 'ayesha', last: 'Johnson'},
+          {first: 'Fatma', last: 'kumary'},
+          {first: 'tony', last: 'Morelli'}
+        ]
+     }
     }
 
     customElements.define(DomElement.is, DomElement)
