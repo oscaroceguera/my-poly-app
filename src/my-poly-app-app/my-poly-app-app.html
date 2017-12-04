@@ -2,7 +2,23 @@
 
 <dom-module id="my-poly-app-app">
   <template>
-    <p>Oscar Oceguera</p>
+    <!-- scoped CSS for this element -->
+    <style>
+      div {
+        display: inline-block;
+        background-color: #ccc;
+        border-radius: 8px;
+        padding: 4px;
+      }
+      div:hover {
+        background-color: red;
+        cursor: pointer;
+      }
+    </style>
+    <div>
+      <!-- any children are rendered here -->
+      <slot></slot>
+    </div>
   </template>
 
   <script>
