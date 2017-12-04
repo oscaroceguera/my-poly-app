@@ -3,7 +3,7 @@
 <dom-module id="my-poly-app-app">
   <template>
     <!-- bind to the "owner" property -->
-    this is <b>{{owner}}</b>'s name-tag element
+    this is <b>[[owner]]</b>'s name-tag element
   </template>
 
   <script>
@@ -12,11 +12,15 @@
         return "my-poly-app-app"
       }
 
-      // set this elements owner property
-      constructor () {
-        super()
-        this.owner = 'Oscar'
-      }
+      // configure owner property
+      static get properties() {
+        return {
+          owner: {
+            type: String,
+            value: 'Oscar'
+          }
+        }
+      } 
     }
 
     customElements.define(DomElement.is, DomElement)
