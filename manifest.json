@@ -1,0 +1,6 @@
+{
+  "name": "my-poly-app",
+  "short_name": "my-poly-app",
+  "start_url": "/",
+  "display": "standalone"
+}
