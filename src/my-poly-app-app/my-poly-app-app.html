@@ -1,9 +1,19 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
+<!-- import the iron-input element -->
+<link rel="import" href="https://polygit.org/components/iron-input/iron-input.html">
+
+
 <dom-module id="my-poly-app-app">
   <template>
     <!-- bind to the "owner" property -->
-    this is <b>[[owner]]</b>'s name-tag element
+    <p>this is <b>[[owner]]</b>'s name-tag element</p>
+
+    <!--  iron-input exposes a two-way bindable input value  -->
+    <iron-input bind-value="{{owner}}">
+      <input is="iron-input" placeholder="ypur name here..." >
+
+    </iron-input>
   </template>
 
   <script>
